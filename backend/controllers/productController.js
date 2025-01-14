@@ -1,6 +1,5 @@
 const productService = require('../services/productService');
 
-// Fetch all products with pagination
 const getAllProducts = async (req, res) => {
   try {
     const { page = 1, limit = 10 } = req.query;
@@ -12,7 +11,6 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-// Create a new product
 const createProduct = async (req, res) => {
   try {
     const { name, category_id } = req.body;
@@ -26,7 +24,6 @@ const createProduct = async (req, res) => {
   }
 };
 
-// Delete a product
 const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -37,7 +34,6 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-// Update a product
 const updateProduct = async (req, res) => {
   try {
     const { id } = req.params;

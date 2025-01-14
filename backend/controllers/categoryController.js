@@ -1,6 +1,5 @@
 const categoryService = require('../services/categoryService');
 
-// Fetch all categories
 const getAllCategories = async (req, res) => {
   try {
     const categories = await categoryService.getAllCategories();
@@ -10,7 +9,6 @@ const getAllCategories = async (req, res) => {
   }
 };
 
-// Create a new category
 const createCategory = async (req, res) => {
   try {
     const { name } = req.body;
@@ -24,7 +22,6 @@ const createCategory = async (req, res) => {
   }
 };
 
-// Delete a category
 const deleteCategory = async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,7 +32,6 @@ const deleteCategory = async (req, res) => {
   }
 };
 
-// Update a category
 const updateCategory = async (req, res) => {
   try {
     const { id } = req.params;

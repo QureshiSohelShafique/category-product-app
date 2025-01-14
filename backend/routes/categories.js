@@ -1,24 +1,11 @@
 const express = require('express');
-const db = require('../db'); 
+const categoryController = require('../controllers/categoryController');
+
 const router = express.Router();
 
-
-router.post('/', (req, res) => {
-    const { name } = req.body;
-
-    if (!name || name.trim() === '') {
-        return res.status(400).json({ error: 'Category name is required' });
-    }
-
-    
-    const query = 'INSERT INTO categories (name) VALUES (?)';
-    db.query(query, [name], (err, results) => {
-        if (err) {
-            console.error('Error inserting category:', err);
-            return res.status(500).json({ error: 'Database error' });
-        }
-        res.status(201).json({ message: 'Category created', id: results.insertId });
-    });
-});
+router.get('/', categoryController.getAllCategories);
+router.post('/', categoryController.createCategory);
+router.delete('/:id', categoryController.deleteCategory);
+router.put('/:id', categoryController.updateCategory);
 
 module.exports = router;
